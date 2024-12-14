@@ -1,0 +1,6 @@
+#QuestionLabel{
+    -fx-text-fill: black;
+}
+.ImageVbox{
+    -fx-padding: 15px;
+}

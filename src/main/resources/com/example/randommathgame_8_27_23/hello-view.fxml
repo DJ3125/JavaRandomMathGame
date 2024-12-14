@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="GameArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#handleMouseMove" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.randommathgame_8_27_23.HelloController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-8.0" layoutY="-7.0" prefHeight="76.0" prefWidth="614.0" text="Dylan's Random Math Game!" underline="true">
+         <font>
+            <Font name="Calibri" size="48.0" />
+         </font>
+      </Label>
+      <Button fx:id="WelcomeButton" layoutX="266.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#handleWelcome" text="Welcome" />
+      <TabPane id="TotalTabPane" fx:id="MyTabPane" disable="true" layoutX="-6.0" layoutY="107.0" prefHeight="300.0" prefWidth="606.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" visible="false">
+        <tabs>
+          <Tab fx:id="ClassicModeTab" closable="false" text="Classic Mode">
+               <content>
+                  <AnchorPane onMouseMoved="#handleMouseMove" prefHeight="257.0" prefWidth="594.0">
+                     <children>
+                        <Label fx:id="NotificationLabel" layoutX="14.0" layoutY="195.0" prefHeight="67.0" prefWidth="141.0" text="Finish 15 problems or go back to the main menu to navigate to other tabs" visible="false" wrapText="true" />
+                        <Button fx:id="QuittersButton" disable="true" layoutX="242.0" layoutY="230.0" mnemonicParsing="false" onMouseClicked="#handleAskQuit" text="Back to Main Menu" visible="false" />
+                        <VBox fx:id="InitializationVBox" alignment="CENTER" disable="true" layoutX="123.0" layoutY="14.0" prefHeight="76.0" prefWidth="357.0" visible="false">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="36.0" prefWidth="363.0">
+                                 <children>
+                                    <Label text="I want to do " />
+                                    <ChoiceBox fx:id="OperationChoiceBox" prefHeight="25.0" prefWidth="83.0" />
+                                    <Label text="on " />
+                                    <ChoiceBox fx:id="DifficultyChoiceBox" prefHeight="25.0" prefWidth="77.0" />
+                                    <Label text="difficulty." />
+                                 </children>
+                              </HBox>
+                              <Button fx:id="ConfirmChoicesButton" alignment="TOP_RIGHT" contentDisplay="TOP" disable="true" mnemonicParsing="false" onMouseClicked="#handleConfirmation" text="Confirm" textAlignment="CENTER" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="QuestionsVBox" alignment="CENTER" disable="true" layoutX="201.0" layoutY="97.0" maxHeight="133.0" maxWidth="204.0" prefHeight="133.0" prefWidth="204.0" visible="false">
+                           <children>
+                              <Label id="QuestionLabel" fx:id="DisplayQuestionLabel" alignment="CENTER" text="Label" />
+                              <TextField fx:id="UserAnswerTextBox" />
+                              <Button fx:id="SubmitAnswerButton" mnemonicParsing="false" onKeyTyped="#handleCheckUserResponse" onMouseClicked="#handleCheckUserResponse" text="Submit" />
+                           </children>
+                        </VBox>
+                        <Label fx:id="StatisticsLabel" alignment="TOP_LEFT" layoutX="457.0" layoutY="185.0" prefHeight="76.0" prefWidth="135.0" text="Label" textAlignment="CENTER" visible="false" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="AwardsTab" closable="false" text="Awards and Achievements">
+               <content>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Your Achievements!" textAlignment="CENTER">
+                           <font>
+                              <Font size="33.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
+                           <content>
+                              <Accordion prefHeight="152.0" prefWidth="607.0">
+                                <panes>
+                                  <TitledPane text="Addition Achievements">
+                                       <content>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageA1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../../OtherFiles/QuestionMark.png" />
+                                                         </image></ImageView>
+                                                      <Label fx:id="LabelA1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageA2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelA2" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageA3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelA3" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content>
+                                    </TitledPane>
+                                  <TitledPane text="Subtraction Achievements">
+                                       <content>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageS1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelS1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageS2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelS2" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageS3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelS3" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane prefHeight="200.0" prefWidth="200.0" text="Multiplication Achievements">
+                                       <content>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageM1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelM1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageM2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelM2" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageM3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelM3" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane prefHeight="200.0" prefWidth="200.0" text="Division Achievements">
+                                       <content>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageD1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelD1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageD2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelD2" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageD3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelD3" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane animated="false" text="Exponents Achievements">
+                                       <content>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageE1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelE1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageE2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelE2" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageE3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelE3" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content>
+                                    </TitledPane>
+                                    <TitledPane animated="false" text="Random Achievements">
+                                       <content>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageR1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelR1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageR2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelR2" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="ImageVbox">
+                                                   <children>
+                                                      <ImageView fx:id="ImageR3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <Label fx:id="LabelR3" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </content>
+                                    </TitledPane>
+                                </panes>
+                              </Accordion>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
